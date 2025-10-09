@@ -120,13 +120,13 @@ const AddPost = () => {
                   required
                 >
                   <option value="">Select Category</option>
-                  <option value="Books">Books</option>
-                  <option value="Electronics">Electronics</option>
-                  <option value="Furniture">Furniture</option>
-                  <option value="Properties">Properties</option>
-                  <option value="Clothing">Clothing</option>
-                  <option value="AutoMobiles">AutoMobiles</option>
-                  <option value="Other">Other</option>
+                  <option value="book">Books</option>
+                  <option value="electronics">Electronics</option>
+                  <option value="furniture">Furniture</option>
+                  <option value="properties">Properties</option>
+                  <option value="clothing">Clothing</option>
+                  <option value="automobiles">AutoMobiles</option>
+                  <option value="other">Other</option>
                 </select>
               </div>
               <div className="form-row">
