@@ -94,10 +94,10 @@ const AddPost = () => {
 
   return (
     <>
-      <main className="addpost-main">
         {loading ? (
           <Loader />
         ) : (
+          <main className="addpost-main">
           <section className="addpost-card">
             <h2 className="addpost-title">Add New Item</h2>
             <form className="addpost-form" onSubmit={handleSubmit}>
@@ -204,8 +204,8 @@ const AddPost = () => {
               </button>
             </form>
           </section>
+          </main>
         )}
-      </main>
     </>
   );
 };

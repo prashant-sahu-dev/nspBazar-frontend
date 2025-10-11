@@ -12,8 +12,6 @@ const MyPost = () => {
 
   const myItems = useSelector((state) => state.myItems);
 
-  console.log("My Items:", myItems);
-
   useEffect(() => {
     setLoading(true);
     // Check if user is logged in

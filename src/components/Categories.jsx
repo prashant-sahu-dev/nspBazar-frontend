@@ -19,10 +19,10 @@ import { FreeMode, Pagination } from "swiper/modules";
 const Categories = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const categories = [
-  { name: "Books", image: "/images/categories/books.png" },
+  { name: "Book", image: "/images/categories/books.png" },
   { name: "Electronics", image: "/images/categories/electronics.png" },
   { name: "Furniture", image: "/images/categories/furniture.png" },
-  { name: "Properties", image: "/images/categories/properties.png" },
+  { name: "Property", image: "/images/categories/properties.png" },
   { name: "Clothing", image: "/images/categories/fashion.png" },
   { name: "AutoMobiles", image: "/images/categories/vehicles.png" },
   { name: "Other", image: "/images/categories/other.png" },

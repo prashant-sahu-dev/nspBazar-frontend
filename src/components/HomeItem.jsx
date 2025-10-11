@@ -24,9 +24,6 @@ const HomeItem = ({ item }) => {
 
   const atMyPostsPage = location.pathname === "/myPost";
 
-  const handleRemoveFromBag = () => {
-    dispatch(bagActions.removeFromBag(item._id));
-  };
 
   const handleAddToWishlist = () => {
     const userId = localStorage.getItem("userId");
@@ -81,8 +78,10 @@ const HomeItem = ({ item }) => {
     const body = {
       itemId: item._id,
       userId: localStorage.getItem("userId"),
-      imagePublicId: item.imagePublicId,
+      imagePublicId: item.image // Assuming item.image contains the public ID,
     };
+    
+    // Optimistically update the UI by removing the item first
     dispatch(myItemsActions.deleteItem(item._id));
     dispatch(itemsActions.deleteItem(item._id));
     fetch(`${import.meta.env.VITE_API_BASE_URL}/api/items`, {
@@ -92,7 +91,8 @@ const HomeItem = ({ item }) => {
       },
       body: JSON.stringify(body),
     })
-      .then(() => {
+      .then((res) => {
+        console.log("Item deleted:", res);
         toast.warn("Item is removed!", {
           position: "top-center",
           autoClose: 4000,
