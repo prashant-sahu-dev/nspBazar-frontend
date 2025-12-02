@@ -16,7 +16,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import GroceryShops from "./routes/Grocery/GroceryShops.jsx";
 import ShopItems from "./routes/Grocery/ShopItems.jsx";
 import ShopOwnerLogin from "./routes/ShopOwners/Login/ShopOwnerLogin.jsx";
-import ShopDashBoard from "./routes/ShopOwners/ShopDashBoard/ShopDashBoard.jsx";
+import ShopDashboard from "./routes/ShopOwners/ShopDashBoard/ShopDashboard.jsx";
 import ShopProtectedRoute from "./components/ShopProtectedRoute.jsx";
 
 const router = createBrowserRouter([
@@ -58,7 +58,7 @@ const router = createBrowserRouter([
        },
       {
         path: "/shop-owners",
-        element: <ShopProtectedRoute><ShopDashBoard /></ShopProtectedRoute>
+        element: <ShopProtectedRoute><ShopDashboard /></ShopProtectedRoute>
       }
     ],
   },
