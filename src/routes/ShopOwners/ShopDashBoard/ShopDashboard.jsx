@@ -1,4 +1,4 @@
-import "./ShopDashBoard.css";
+import "./ShopDashboard.css";
 import { useEffect, useState, useRef  } from "react";
 import ShopOwnerItemCard from "../../../components/ShopOwnerItemCard";
 import { useDispatch, useSelector} from "react-redux";
