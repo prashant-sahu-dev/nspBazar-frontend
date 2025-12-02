@@ -1,7 +1,7 @@
 import SearchBar from "./SearchBar";
 import CategoryDropdown from "./CategoryDropdown";
 import ProductList from "./ProductList";
-import "./Marketplace.css";
+import "./MarketPlace.css";
 
 const Marketplace = () => {
   
