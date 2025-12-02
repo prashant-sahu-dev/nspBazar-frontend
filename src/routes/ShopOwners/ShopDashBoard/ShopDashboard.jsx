@@ -8,6 +8,7 @@ import { shopActions } from "../../../store/shopSlice";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { FiLogOut } from "react-icons/fi";
 import { MdCancel } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const ShopDashBoard = () => {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ const ShopDashBoard = () => {
   const priceRef = useRef();
   const imageUrlRef = useRef();
 
+    const navigate = useNavigate();
   const shopId = localStorage.getItem("shop_id");
   const shopName = localStorage.getItem("shop_name");
 
@@ -31,6 +33,7 @@ const ShopDashBoard = () => {
     localStorage.removeItem("shop_id");
     localStorage.removeItem("shop_name");
     console.log("Logged out successfully");
+    navigate("/shop/login", { replace: true });  // <-- ye sahi hai
   };
 
   const handleAddProductSubmit = async (e) => {

@@ -42,7 +42,7 @@ const ShopOwnerLogin = () => {
 
     } catch (err) {
       console.error(err);
-      alert("Invalid Shop ID or Passcode");
+      alert("Invalid Shop ID or Passcode", err.message);
     }
   };
 

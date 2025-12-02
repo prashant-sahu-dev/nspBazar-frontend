@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:8080/api/grocery";
+const API = import.meta.env.VITE_API_BASE_URL;
 
 export const fetchAllShops = async () => {
   return axios.get(`${API}/shops`);
