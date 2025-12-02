@@ -23,3 +23,9 @@
     align-items: stretch;
   }
 }
+
+@media (max-width: 600px) {
+  .marketplace {
+    padding: 1rem 1.5rem;
+  }
+}

@@ -15,7 +15,7 @@ const FetchStatus = () => {
     const signal = controller.signal;
 
     dispatch(fetchStatusActions.markFetchingStarted());
-    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/items`, { signal })
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/items`, { signal })
       .then((res) => res.json())
       .then((data) => {
         dispatch(fetchStatusActions.markFetchingFinished());
