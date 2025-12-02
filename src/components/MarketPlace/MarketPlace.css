@@ -1,0 +1,25 @@
+/* MAIN WRAPPER */
+.marketplace {
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 5rem;
+  background-color: #FFF4E8;
+}
+
+/* TOP FILTERS WRAPPER */
+.top-filters {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Responsive Layout — Stack on mobile */
+@media (max-width: 768px) {
+  .top-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

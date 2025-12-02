@@ -1,0 +1,18 @@
+/* MAIN GRID WRAPPER */
+.product-list {
+  width: 100%;
+  margin-top: 2rem;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  padding: 0.5rem;
+}
+
+/* RESPONSIVE — MOBILE FRIENDLY */
+@media (max-width: 768px) {
+  .product-list {
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+}

@@ -1,323 +1,144 @@
-header {
-    display: flex;
-    background-color: #ffffff;
-    height: 80px;
-    width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #b6b1b1;
-    box-sizing: border-box;
-    position: relative;
+/* MAIN HEADER */
+.header {
+  width: 100%;
+  background: #FF6E36;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
 }
 
-.myntra_home {
-    height: 65px;
-    margin-left: 0;
-    transition: transform 0.2s;
-    
+/* LEFT SIDE */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
 }
 
-.myntra_home:hover {
-    transform: scale(1.08);
+/* SQUARE LOGO BOX */
+.logo-box {
+  width: 3rem;
+  height: 3rem;
+  background: #fff;
+  color: #FF6E36;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.75rem;
+  font-weight: bold;
 }
 
-.logo_container {
-    margin-left: 0;
+/* BRAND TEXT */
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
 }
 
-.action_bar {
-    display: flex;
-    min-width: 200px;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 18px;
-    margin-right: 0;
+.brand-title {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.5px;
 }
 
-.action_container {
-    display: flex;
+.brand-tagline {
+  margin: 0;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-style: italic;
+}
+
+/* RIGHT SIDE BUTTONS */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* BUTTONS */
+.btn {
+  background: #fff;
+  color: #FF6E36;
+  padding: 0.5rem 0.875rem;
+  border-radius: 0.4rem;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+
+.post-btn {
+  background-color: #45A049;
+  color: white;
+}
+
+.btn:hover {
+  background: #ffe1d7;
+}
+
+.btn svg {
+  font-size: 1.1rem;
+}
+
+/* ==================== MOBILE RESPONSIVE ==================== */
+@media (max-width: 650px) {
+  .header {
     flex-direction: column;
-    align-items: center;
-    gap: 2px;
-    color: inherit;
-}
-
-.nav_bar {
-    display: flex;
-    width: 40%;
-    justify-content: space-evenly;
-    gap: 10px;
-}
-
-.nav_bar a {
-    font-size: 1vw;
-    letter-spacing: .3px;
-    color: #282c3f;
-    font-weight: 700;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 20px 0;
-    border-bottom: 5px solid #ffffff;
-    transition: border-bottom 0.2s;
-}
-
-.nav_bar a:hover {
-    border-bottom: 4px solid #f54e77;
-}
-
-.nav_bar a sup {
-    color: #ff3f6c;
-    font-size: 10px;
-}
-
-.search_bar {
-    height: 40px;
-    width: 30%;
-    min-width: 180px;
-    display: flex;
-    align-items: center;
-    color: #282c3f;
-    background-color: #e9e9f3;
-    border-radius: 4px;
-    justify-content: flex-start;
-    padding: 0 8px;
-    box-sizing: border-box;
-}
-
-.search_icon {
-    font-size: 1.5rem;
-    margin-right: 6px;
-}
-
-.search_input {
-    color: #696e79;
-    background-color: transparent;
-    border: none;
-    height: 100%;
-    width: 100%;
-    font-size: 1rem;
-    outline: none;
-}
-
-.search_button {
-    padding: 8px 12px;
-    background-color: transparent;
-    color: #282c3f;
-    font-weight: 300;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.search_button:hover {
-    background-color: #f3f3fa;
-}
-
-/* Mobile NavBar    */
-
-#full-scr {
-    background-color: rgba(0, 0, 0, 0.532);
-    height: 100vh;
-    width: 100%;
-    position: fixed;
-    z-index: 9;
-    top: -110%;
-    transition: all ease 0.5s;
-    display: none;
-}
-
-#full-div1 {
-    height: 50%;
-    width: 100%;
-    background-color: #EFEAE3;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-}
-
-header h3 {
-    display: none;
-    position: relative;
-    z-index: 10;
-}
-
-/* Mobile Nav Overlay */
-#full-scr.mobile-nav {
-    position: fixed;
-    top: -110%;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: orange ;
-    z-index: 9;
-    transition: top 0.8s cubic-bezier(.77, 0, .18, 1);
-    display: flex;
-    align-items: center;
+    /* ↓ Switch row → column */
     justify-content: center;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-      pointer-events: auto; /* 👈 Allows it to receive touch/click events */
-  touch-action: none;   /* 👈 Prevents default scrolling behavior */
-}
+    align-items: center;
+    padding: 1rem 1rem;
+    gap: 1rem;
+  }
 
-/* When menu is open, set top: 0% via JS */
-
-/* Mobile Nav Content */
-.mobile-nav-content {
-    display: flex;
+  /* Logo center me */
+  /* .header-left {
+    justify-content: center;
     flex-direction: column;
-    gap: 32px;
-    align-items:flex-start ;
-    width: 55%;
-    height:70%;
-    justify-content:space-evenly
+    text-align: center;
+  } */
 
-}
+  /* Buttons neeche ek row me */
+  .header-right {
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    /* agar jagah kam ho to line break ho jayega */
+  }
 
-.mobile-nav-link {
+  .btn {
+    background: #fff;
+    color: #FF6E36;
+    padding: 0.4rem 0.7rem;
+    border-radius: 0.4rem;
+    border: none;
+    font-size: 0.8rem;
+    font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 14px;
-    font-size: 1.3rem;
-    color: #282c3f;
-    text-decoration: none;
-    font-weight: 600;
-    
-    border-radius: 8px;
-    transition: background 1s, color 1s;
-}
+    gap: 0.4rem;
+    cursor: pointer;
+  }
 
-.mobile-nav-link:hover {
-    background: #f54e77;
-    color: #fff;
-}
+  .brand-title {
+    line-height: 1.1;
+  }
 
-.mobile-nav-link svg {
-    font-size: 2rem;
-}
 
-/* Hide mobile nav on desktop */
-@media (min-width: 800px) {
-    #full-scr.mobile-nav {
-        display: none !important;
-    }
-}
-
-/* Responsive styles */
-@media (max-width: 900px) {
-    header {
-        flex-direction: column;
-        height: auto;
-        padding: 10px 2vw;
-    }
-
-    .nav_bar {
-        width: 75%;
-        justify-content: space-evenly;
-        gap: 5px;
-    }
-
-    .search_bar {
-        width: 80%;
-        margin: 10px 0;
-    }
-
-    .action_bar {
-        width: 75%;
-        justify-content: space-evenly;
-        gap: 10px;
-        margin: 10px 0 0 0;
-    }
-}
-
-@media (max-width: 600px) {
-    header {
-        flex-direction: column;
-        height: auto;
-        padding: 8px 1vw;
-        font-size: larger;
-    }
-
-    .nav_bar {
-        width: 100%;
-        flex-wrap: wrap;
-        gap: 2px;
-    }
-
-    .nav_bar a {
-        font-size: 0.9rem;
-        padding: 15px 0;
-    }
-
-    .search_bar {
-        width: 100%;
-        min-width: 120px;
-        margin: 8px 0;
-    }
-
-    .action_bar {
-        width: 100%;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin: 8px 0 0 0;
-    }
-
-    .myntra_home {
-        height: 45px;
-    }
-
-    .search_input {
-        font-size: 0.9rem;
-    }
-
-    #full-scr {
-        display: block;
-    }
-
-    header h3 {
-        display: block;
-    }
-
-    #full-div1 {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        color: #282c3f;
-    }
-
-    #full-div1 a {
-        color: #282c3f;
-        text-decoration: none;
-        margin-left: 5vw;
-    }
-
-    #full-div1 a:hover {
-        color: #f54e77;
-    }
-
-    .logo_container {
-        display: flex;
-        justify-content: space-between;
-        width: 88%;
-        margin-top: 1vh;
-        margin-bottom: 1vh;
-        align-items: center;
-    }
-
-    .action_container {
-        display: flex;
-        flex-direction: row;
-        width: 20%;
-
-    }
-
-    .nav_bar {
-        display: none;
-    }
-
-    .action_bar {
-        display: none;
-    }
 }

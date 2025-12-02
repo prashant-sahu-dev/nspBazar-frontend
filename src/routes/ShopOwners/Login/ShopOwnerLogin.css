@@ -1,0 +1,148 @@
+/* Full Page Center + Soft Background */
+.shop-owner-login-container {
+  width: 100%;
+  min-height: 100vh;
+  background: #FFEDDB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+}
+
+/* White Login Box */
+.shop-owner-login-box {
+  background: #fff;
+  padding: 40px;
+  border-radius: 18px;
+  box-shadow: 0px 4px 20px rgba(0,0,0,0.15);
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Fade Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Icon Styling */
+.shop-owner-login-icon-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+.login-icon {
+  font-size: 60px;
+  color: #45A049;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Headings */
+.shop-owner-login-box h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.shop-owner-login-box p {
+  color: #6b7280;
+  margin-bottom: 25px;
+  font-size: 15px;
+}
+
+/* Form */
+.shop-owner-login-form {
+  width: 100%;
+  text-align: left;
+}
+
+/* Labels */
+.shop-owner-login-form label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+  color: #374151;
+}
+
+/* Inputs & Select Base Style */
+.shop-owner-login-form input,
+.shop-owner-login-form select {
+  width: 100%;
+  padding: 12px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 15px;
+  background: #fff;
+  transition: 0.3s ease;
+  margin-bottom: 18px;
+}
+
+/* Focus Highlight */
+.shop-owner-login-form input:focus,
+.shop-owner-login-form select:focus {
+  border-color: #45A049;
+  box-shadow: 0 0 6px rgba(69,160,73,0.35);
+}
+
+/* ⭐ Custom Select Dropdown Animation */
+.shop-owner-login-form select {
+  position: relative;
+  cursor: pointer;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%2345A049" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 7l4.5 4.5L14.5 7"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+/* Dropdown Slide Animation */
+.shop-owner-login-form select option {
+  padding: 10px;
+  animation: slideDown 0.35s ease forwards;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Button */
+.shop-owner-login-form button {
+  width: 100%;
+  padding: 13px;
+  background: #45A049;
+  border: none;
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Button Hover */
+.shop-owner-login-form button:hover {
+  background: #38923b;
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.12);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .shop-owner-login-box {
+    padding: 25px;
+  }
+
+  .login-icon {
+    font-size: 48px;
+  }
+
+  .shop-owner-login-box h2 {
+    font-size: 24px;
+  }
+}

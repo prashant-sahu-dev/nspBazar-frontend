@@ -1,0 +1,39 @@
+/* MAIN DROPDOWN STYLE */
+.category-dropdown {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  font-size: 1rem;
+
+  background: #ffffff;
+  color: #333;
+
+  border: 2px solid #e4e4e4;
+  border-radius: 10px;
+
+  outline: none;
+  cursor: pointer;
+
+  transition: 0.25s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* FOCUS + OPEN EFFECT */
+.category-dropdown:focus {
+  border-color: #FF6E36;
+  box-shadow: 0 3px 10px rgba(255, 110, 54, 0.25);
+}
+
+/* OPTIONS STYLING (Browsers with support) */
+.category-dropdown option {
+  padding: 10px;
+  font-size: 1rem;
+}
+
+/* FULL WIDTH ON SMALL SCREENS */
+@media (max-width: 768px) {
+  .category-dropdown {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    font-size: 0.95rem;
+  }
+}

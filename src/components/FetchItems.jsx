@@ -34,7 +34,7 @@ const FetchStatus = () => {
     return () => {
       controller.abort();
     };
-  }, [fetchStatus]);
+  }, [fetchStatus.fetchDone]);
   return <></>;
 };
 

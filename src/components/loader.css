@@ -1,5 +1,6 @@
-.my-spinner-class{
-    margin-left: 46vw;
-    margin-top: 10vh;
-    margin-bottom: 10vh;
+.my-spinner-class {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: antiquewhite;
 }

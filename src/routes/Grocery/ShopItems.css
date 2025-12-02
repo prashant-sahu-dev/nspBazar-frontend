@@ -1,0 +1,17 @@
+.shop-items-container {
+  padding: 20px;
+}
+
+.shop-items-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 22px;
+  padding: 10px 0;
+}
