@@ -13,10 +13,10 @@
 
 .shop-banner {
   width: 100%;
-  background: linear-gradient(135deg, #2ec130, #009007);
-  padding: 25px 20px;
-  border-radius: 16px;
-  color: #fff;
+      background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+    padding: 2rem 1.5rem;
+    color: white;
+    margin-bottom: 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,8 +24,9 @@
 }
 
 .shop-banner h2 {
-  font-size: 26px;
-  font-weight: 600;
+  font-size: 2.25rem;
+    margin-bottom: 0.5rem;
+  font-weight: 400;
 }
 
 .banner-actions {

@@ -1,12 +1,10 @@
-.shop-items-container {
-  padding: 20px;
+.shop-items-page {
+  padding: 2rem 0;
+  background-color: #FFEAD6;
 }
 
-.shop-items-title {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  text-align: center;
-  color: #333;
+.shop-items-container {
+  padding: 20px;
 }
 
 .items-grid {
@@ -14,4 +12,46 @@
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 22px;
   padding: 10px 0;
+}
+
+.shopItems-shopBanner {
+  background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+  color: white;
+
+  padding: 2rem;
+  color: white;
+  text-align: center;
+  border-radius: 16px;
+  position: relative;
+}
+
+.shopItems-shopBanner h1 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.shopItems-shopBanner p {
+  font-size: 1.125rem;
+  opacity: 0.95;
+  font-family: 'Inter', sans-serif;
+}
+
+.shopItems-back-button {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  color: #4CAF50;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .shopItems-back-button {
+    position: static;
+    transform: none;
+    margin-bottom: 1rem;
+    width: fit-content;
+  }
 }

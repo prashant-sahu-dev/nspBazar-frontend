@@ -27,7 +27,8 @@ const ShopOwnerLogin = () => {
     const passcode = passcodeRef.current.value;
 
     try {
-      const res = await axios.post("http://localhost:8080/api/groceryAuth/groceryShopLogin", {
+      console.log("Attempting login for shop:", shopName, passcode);
+      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/groceryAuth/groceryShopLogin`, {
         shopName,
         passcode,
       });
@@ -41,8 +42,8 @@ const ShopOwnerLogin = () => {
       window.location.href = "/shop-owners";
 
     } catch (err) {
-      console.error(err);
-      alert("Invalid Shop ID or Passcode", err.message);
+      console.error("here is the error message:", err);
+      alert("Invalid Shop ID or Passcode: "+ err.message);
     }
   };
 

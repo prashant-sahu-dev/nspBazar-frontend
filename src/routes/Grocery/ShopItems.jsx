@@ -8,12 +8,14 @@ import { fetchItemsByShop } from "../../services/shopService";
 import { shopActions } from "../../store/shopSlice";
 import { useSelector } from "react-redux";
 import { fetchStatusActions } from "../../store/fetchStatusSlice";
+import { Link } from "react-router-dom";
+import Loader from "../../components/Loader";
 
 // ---------- COMPONENT ----------
 const ShopItems = () => {
-  const { shopId } = useParams(); // React Router hook to read dynamic params. :contentReference[oaicite:0]{index=0}
+  const { shopId, shopName } = useParams(); // React Router hook to read dynamic params. :contentReference[oaicite:0]{index=0}
   const dispatch = useDispatch();
-  
+  const [loading, setLoading] = useState(false);
   const {items: itemsByShop} = useSelector((state) => state.shops);
   const items = itemsByShop[shopId] || []; // Get items for the current shop
   // For fixed header adjustment, same pattern as before
@@ -22,7 +24,7 @@ const ShopItems = () => {
   useEffect(() => {
     const fetchItems = async (shopId) => {
       try {
-        
+        setLoading(true);
         const response = await fetchItemsByShop(shopId);
         console.log("Fetched items:", response.data);
 
@@ -32,7 +34,7 @@ const ShopItems = () => {
             items: response.data.items,
           })
         );
-
+        setLoading(false);
     
       } catch (error) {
         console.error("Error fetching items:", error);
@@ -55,15 +57,21 @@ const ShopItems = () => {
     return () => window.removeEventListener("resize", updateHeight);
   }, []); // using effect for DOM read; this is a valid use of useEffect. :contentReference[oaicite:1]{index=1}
 
-  return (
+  return (<>{loading ? <Loader/> : 
     <div
-      className="shop-items-container"
+      className="shop-items-page"
       style={{
         marginTop: `${headerHeight}px`,
         minHeight: `calc(100vh - ${headerHeight}px)`,
       }}
-    >
-      <h1 className="shop-items-title">Items Available</h1>
+    > 
+    <div className="shopItems-shopBanner">
+        <Link to="/grocery" className="shopItems-back-button btn">← Back to Shops</Link>
+        <h1 className="shopItems-shopName">{shopName}</h1>
+        <p>Your Trusted grocery store for daily need</p>
+      </div>
+
+    <div className="shop-items-container">
 
       {/* Grid wrapper for cards */}
       <div className="items-grid">
@@ -71,8 +79,9 @@ const ShopItems = () => {
           <ShopItemCard key={item._id} item={item} />
         ))}
       </div>
+      </div>
     </div>
-  );
+  }</>);
 };
 
 export default ShopItems;

@@ -4,21 +4,25 @@ import { shopActions } from "../../store/shopSlice";
 import { fetchAllShops } from "../../services/shopService";
 import { Link } from "react-router-dom";
 import "./GroceryShops.css";
+import Loader from "../../components/Loader";
 
 const GroceryShops = () => {
   const dispatch = useDispatch();
-  const { shops, loading, error } = useSelector((state) => state.shops);
+  const { shops, error } = useSelector((state) => state.shops);
+   
+  const [loading, setLoading] = useState(false);
 
   const [headerHeight, setHeaderHeight] = useState(0);
 
   useEffect(() => {
     const loadShops = async () => {
-   
+      setLoading(true);
       try {
         console.log("initial shops:",shops);
         const response = await fetchAllShops();
         console.log("Fetched Shops:", response.data.shops);
         dispatch(shopActions.setShops(response.data.shops));
+        setLoading(false);
       } catch (err) {
         dispatch(shopActions.setError("Failed to load shops"));
       }
@@ -37,7 +41,7 @@ const GroceryShops = () => {
     return () => window.removeEventListener("resize", updateHeight);
   }, []);
 
-  return (
+  return (<>{loading ? <Loader/> :
     <div
       className="shops-container"
       style={{
@@ -56,14 +60,14 @@ const GroceryShops = () => {
             <h2>{shop.name}</h2>
             <p>{shop.address}</p>
 
-            <Link className="view-btn" to={`/shop/${shop._id}`}>
+            <Link className="view-btn" to={`/shop/${shop.name}/${shop._id}`}>
               View Items
             </Link>
           </div>
         ))}
       </div>
     </div>
-  );
+}</>);
 };
 
 export default GroceryShops;

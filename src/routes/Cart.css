@@ -127,7 +127,27 @@
 /* Empty Cart */
 .empty-cart {
   text-align: center;
-  padding: 50px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.empty-cart svg{
+  height:60px ;
+  width: 60px ;
+  color: #D1D5DB
+}
+
+.empty-cart h2 {
+  margin-top: 20px;
+  font-size: 24px;
+  color: #333;
+}
+.empty-cart p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #666;
 }
 
 .empty-cart img {

@@ -3,6 +3,7 @@ import { cartActions } from "../store/cartSlice";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Cart.css";
+import { IoCartOutline } from "react-icons/io5";
 import { FaArrowLeft } from "react-icons/fa6";
 import { PiTrashBold } from "react-icons/pi";
 
@@ -66,7 +67,7 @@ const Cart = () => {
       </div>
       {cart.items.length === 0 ? (
         <div className="empty-cart">
-          <img src="/images/empty-cart.png" alt="empty" />
+          <IoCartOutline />
           <h2>Your cart is empty</h2>
           <p>Add items to proceed</p>
         </div>

@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <Header></Header>
-      <InstallPromptModal />
+      {/* <InstallPromptModal /> */}
       <FetchItems></FetchItems>
       {fetchStatus.currentlyFetching ? <Loader/> : <Outlet/> }
       <Footer></Footer>
