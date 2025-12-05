@@ -156,6 +156,51 @@ input {
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 }
 
+/* Inputs & Select Base Style */
+.shop-owner-login-form input,
+.shop-owner-login-form select {
+  width: 100%;
+  padding: 12px;
+  border: 1.5px solid #1359c1;
+  border-radius: 10px;
+  font-size: 15px;
+  background: #fff;
+  transition: 0.3s ease;
+  margin-bottom: 18px;
+}
+
+/* Focus Highlight */
+.add-product-box input:focus,
+.add-product-box select:focus {
+  border-color: #45A049;
+  box-shadow: 0 0 6px rgba(69,160,73,0.35);
+}
+
+/* ⭐ Custom Select Dropdown Animation */
+.add-product-box select {
+  position: relative;
+  cursor: pointer;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%2345A049" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 7l4.5 4.5L14.5 7"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+      padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Dropdown Slide Animation */
+.add-product-box select option {
+  padding: 10px;
+  animation: slideDown 0.35s ease forwards;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
 @media(max-width: 600px) {
     .shop-dashboard{
       padding-left: clamp(5px, 4vw, 100px);

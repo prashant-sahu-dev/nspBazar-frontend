@@ -10,16 +10,46 @@ import { useSelector } from "react-redux";
 import { fetchStatusActions } from "../../store/fetchStatusSlice";
 import { Link } from "react-router-dom";
 import Loader from "../../components/Loader";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+
+const categories = [
+  "🛒All",
+  "🍞Dairy, Bakery & Breakfast",
+  "🌾Staples & Grains",
+  "🌶️Oils, Masala & Spices",
+  "🍿Snacks & Beverages",
+  "🍜Packaged & Instant Food",
+  "🧴Personal Care",
+  "🧹Home & Cleaning",
+  "👶 🍼Baby & Kids",
+  "🐶 Pet Care",
+  "🪔 Pooja & Household Essentials",
+];
 
 // ---------- COMPONENT ----------
 const ShopItems = () => {
   const { shopId, shopName } = useParams(); // React Router hook to read dynamic params. :contentReference[oaicite:0]{index=0}
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
-  const {items: itemsByShop} = useSelector((state) => state.shops);
+  const [selectedCategory, setSelectedCategory] = useState("🛒All");
+
+  const { items: itemsByShop } = useSelector((state) => state.shops);
   const items = itemsByShop[shopId] || []; // Get items for the current shop
   // For fixed header adjustment, same pattern as before
   const [headerHeight, setHeaderHeight] = useState(0);
+
+  const filteredItems = selectedCategory
+    ? items.filter((item) => item.category === selectedCategory)
+    : items;
+
+  const groupedItems = items.reduce((acc, item) => {
+    if (!acc[item.category]) {
+      acc[item.category] = [];
+    }
+    acc[item.category].push(item);
+    return acc;
+  }, {});
 
   useEffect(() => {
     const fetchItems = async (shopId) => {
@@ -35,7 +65,6 @@ const ShopItems = () => {
           })
         );
         setLoading(false);
-    
       } catch (error) {
         console.error("Error fetching items:", error);
       }
@@ -57,31 +86,70 @@ const ShopItems = () => {
     return () => window.removeEventListener("resize", updateHeight);
   }, []); // using effect for DOM read; this is a valid use of useEffect. :contentReference[oaicite:1]{index=1}
 
-  return (<>{loading ? <Loader/> : 
-    <div
-      className="shop-items-page"
-      style={{
-        marginTop: `${headerHeight}px`,
-        minHeight: `calc(100vh - ${headerHeight}px)`,
-      }}
-    > 
-    <div className="shopItems-shopBanner">
-        <Link to="/grocery" className="shopItems-back-button btn">← Back to Shops</Link>
-        <h1 className="shopItems-shopName">{shopName}</h1>
-        <p>Your Trusted grocery store for daily need</p>
-      </div>
+  return (
+    <>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div
+          className="shop-items-page"
+          style={{
+            marginTop: `${headerHeight}px`,
+            minHeight: `calc(100vh - ${headerHeight}px)`,
+          }}
+        >
+          <div className="shopItems-shopBanner">
+            <Link to="/grocery" className="shopItems-back-button btn">
+              ← Back to Shops
+            </Link>
+            <h1 className="shopItems-shopName">{shopName}</h1>
+            <p>Your Trusted grocery store for daily need</p>
+          </div>
 
-    <div className="shop-items-container">
+          <div className="categories-wrapper">
+            <div className="categories-scroll">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  className={`category-btn ${
+                    selectedCategory === cat ? "active" : ""
+                  }`}
+                  onClick={() =>
+                    setSelectedCategory(cat)
+                  }
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="shop-items-container">
+            {selectedCategory === "🛒All" ? (
+              Object.keys(groupedItems).map((category) => (
+                <div className="category-section" key={category}>
+                  <h2 className="category-heading">{category}</h2>
 
-      {/* Grid wrapper for cards */}
-      <div className="items-grid">
-        {items.map((item) => (
-          <ShopItemCard key={item._id} item={item} />
-        ))}
-      </div>
-      </div>
-    </div>
-  }</>);
+                  <div className="shop-items-grid">
+                    {groupedItems[category].map((item) => (
+                      <ShopItemCard key={item._id} item={item} />
+                    ))}
+                  </div>
+                
+                </div>
+              ))
+            ) : (
+              <div className="shop-items-grid">
+                {filteredItems.map((item) => (
+                  <ShopItemCard key={item._id} item={item} />
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </>
+  );
 };
 
 export default ShopItems;
+export { categories };

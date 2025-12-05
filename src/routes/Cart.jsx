@@ -18,7 +18,7 @@ const Cart = () => {
   const delivery = subtotal > 0 ? 20 : 0;
   const total = (Number(subtotal) + delivery).toFixed(2);
 
-  const continueShoppingUrl = cart.items.length>0 ? `/shop/${cart.items[0].shopId}` : "/grocery";
+  const continueShoppingUrl = cart.items.length>0 ? `/shop/${cart.items[0].shopName}/${cart.items[0].shopId}` : "/grocery";
 
   // WhatsApp Checkout Message
   const whatsappMessage = encodeURIComponent(
@@ -65,6 +65,7 @@ const Cart = () => {
           Continue Shopping
         </Link>
       </div>
+      
       {cart.items.length === 0 ? (
         <div className="empty-cart">
           <IoCartOutline />
@@ -92,7 +93,7 @@ const Cart = () => {
                     <button
                       onClick={() => {
                         try {
-                          dispatch(cartActions.decreaseQty(item.id));
+                          dispatch(cartActions.decreaseQty(item._id));
                         } catch (err) {
                           if (err.message === "DIFFERENT_STORE") {
                             // show modal: "Cart has items from X. Clear to switch?"
@@ -106,7 +107,7 @@ const Cart = () => {
                     <button
                       onClick={() => {
                         try {
-                          dispatch(cartActions.increaseQty(item.id));
+                          dispatch(cartActions.increaseQty(item._id));
                         } catch (err) {
                           if (err.message === "DIFFERENT_STORE") {
                             // show modal: "Cart has items from X. Clear to switch?"

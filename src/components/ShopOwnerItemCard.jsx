@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { removeShopItem } from "../services/shopService";
 import { shopActions } from "../store/shopSlice";
+import { toast } from "sonner";
 
 const ShopOwnerItemCard = ({ item, }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -17,11 +18,11 @@ const ShopOwnerItemCard = ({ item, }) => {
       console.log("Deleting item foe shopId", shopId, "itemId:", itemId, "typeof itemId:", typeof itemId, "typeof shopId:", typeof shopId);
       const response = await removeShopItem(itemId);
       dispatch(shopActions.removeItemFromShop({ shopId: shopId, itemId: itemId }));
-      alert("Item deleted successfully:", response.data.message);
+      toast.success("Item deleted successfully!");
     }
    catch(error){
     console.error("Error deleting item:", error);
-    alert("Failed to delete item. Please try again.");
+    toast.error("Failed to delete item. Please try again.");
    }
   }
   return (

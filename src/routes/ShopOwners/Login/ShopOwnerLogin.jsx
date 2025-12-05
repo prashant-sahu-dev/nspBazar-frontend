@@ -2,10 +2,12 @@ import "./ShopOwnerLogin.css";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { BsShop } from "react-icons/bs";
+import { toast } from "sonner";
+import{ useNavigate } from "react-router-dom";
 
 const ShopOwnerLogin = () => {
   const [headerHeight, setHeaderHeight] = useState(0);
-
+  const navigate = useNavigate();
   // ---- useRef for form fields ----
   const shopNameRef = useRef();
   const passcodeRef = useRef();
@@ -27,19 +29,18 @@ const ShopOwnerLogin = () => {
     const passcode = passcodeRef.current.value;
 
     try {
-      console.log("Attempting login for shop:", shopName, passcode);
+      
       const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/groceryAuth/groceryShopLogin`, {
         shopName,
         passcode,
       });
 
       localStorage.setItem("shop_token", res.data.token);
-      
-      console.log("Login Successful:", res.data);
 
-      alert("Login Successful!");
-      // window.location.href = "/shop/dashboard";
-      window.location.href = "/shop-owners";
+      toast.success("Logged in successfully!");
+
+      navigate("/shop-owners");
+   
 
     } catch (err) {
       console.error("here is the error message:", err);

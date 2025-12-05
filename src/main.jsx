@@ -18,6 +18,8 @@ import ShopItems from "./routes/Grocery/ShopItems.jsx";
 import ShopOwnerLogin from "./routes/ShopOwners/Login/ShopOwnerLogin.jsx";
 import ShopDashboard from "./routes/ShopOwners/ShopDashBoard/ShopDashboard.jsx";
 import ShopProtectedRoute from "./components/ShopProtectedRoute.jsx";
+import { Toaster } from "sonner";
+
 
 const router = createBrowserRouter([
   {
@@ -74,20 +76,7 @@ createRoot(document.getElementById("root")).render(
     <GoogleOAuthProvider clientId="397608238006-equbap7begks871rkf1pfbav6mr3t8bb.apps.googleusercontent.com">
     <Provider store={myntraStore}>
       <RouterProvider router={router} />
-      <ToastContainer
-        position="top-center"
-        autoClose={4000}
-        limit={1}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick={false}
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-        transition={Bounce}
-      />
+      <Toaster position="top-right" duration={2000} richColors closeButton />
     </Provider>
     </GoogleOAuthProvider>;
   </StrictMode>
