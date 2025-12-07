@@ -1,0 +1,98 @@
+/* MAIN WRAPPER */
+.addpost {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: #fafafa;
+}
+
+/* CARD */
+.addpost__card {
+  width: 100%;
+  max-width: 720px;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* TITLE */
+.addpost__title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* GRID */
+.addpost__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.2rem;
+}
+
+/* FULL WIDTH FIELD */
+.addpost__field--full {
+  grid-column: 1 / -1;
+}
+
+/* FIELD */
+.addpost__field label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #333;
+}
+
+.addpost__field input,
+.addpost__field select,
+.addpost__field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fdfdfd;
+  transition: 0.2s ease;
+}
+
+.addpost__field input:focus,
+.addpost__field select:focus,
+.addpost__field textarea:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74,144,226,0.2);
+  outline: none;
+}
+
+/* MOBILE INPUT */
+.addpost__mobile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.addpost__mobile-prefix {
+  background: #f1f1f5;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-weight: 500;
+}
+
+/* BUTTON */
+.addpost__btn {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 12px;
+  background: #4a90e2;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.addpost__btn:hover {
+  background: #3a7ac4;
+}

@@ -1,9 +1,9 @@
-import { FaPhoneAlt } from "react-icons/fa";
-import { IoLogoWhatsapp } from "react-icons/io";
-import "./ProductCard.css";
-import { MdLocationOn } from "react-icons/md";
 
-const ProductCard = ({ product }) => {
+import "./MyPostsCard.css";
+import { MdLocationOn } from "react-icons/md";
+import { RiDeleteBin6Line } from "react-icons/ri";
+
+const MyPostsCard = ({ product }) => {
   const message = "I would like to buy your product";
   return (
     <div className="product-card">
@@ -32,22 +32,10 @@ const ProductCard = ({ product }) => {
 
         <div className="action-buttons">
           <button
-            className="call-btn"
+            className="delete-btn"
             onClick={() => (window.location.href = `tel:${product.mobile}`)}
           >
-            <FaPhoneAlt /> &nbsp;Call Seller
-          </button>
-
-          <button
-            className="wa-btn"
-            onClick={() =>
-              window.open(
-                `https://wa.me/${product.mobile}?text=${encodeURIComponent(message)}`,
-                "_blank"
-              )
-            }
-          >
-            <IoLogoWhatsapp /> &nbsp;WhatsApp
+            <RiDeleteBin6Line /> &nbsp;Delete
           </button>
         </div>
 
@@ -57,4 +45,4 @@ const ProductCard = ({ product }) => {
   );
 };
 
-export default ProductCard;
+export default MyPostsCard;

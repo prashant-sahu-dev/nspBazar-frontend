@@ -2,7 +2,7 @@ import "./Hero.css";
 import { useState, useEffect } from "react";
 import { IoMdArrowRoundDown } from "react-icons/io";
 
-const Hero = () => {
+const Hero = ({ scrollToNext }) => {
   const [headerHeight, setHeaderHeight] = useState(0);
 
   useEffect(() => {
@@ -38,7 +38,7 @@ const Hero = () => {
       {/* Sub Tagline */}
       <div className="hero-sub">Narsinghpur Ka Digital Bazaar</div>
 
-      <button className="hero-btn">
+      <button className="hero-btn" onClick={scrollToNext}>
         Explore Listings <IoMdArrowRoundDown />
       </button>
 

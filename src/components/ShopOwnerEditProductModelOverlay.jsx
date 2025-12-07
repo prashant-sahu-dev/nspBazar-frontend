@@ -185,7 +185,7 @@ const ShopOwnerEditProductModelOverlay = ({ item, setIsEditing }) => {
       height={100}
       width={100}
       radius={9}
-      color="White"
+      color="green"
       ariaLabel="audio-loading"
       wrapperStyle={{}}
       wrapperClass=""

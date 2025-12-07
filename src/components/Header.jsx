@@ -34,9 +34,9 @@ const Header = () => {
             <IoCartOutline />{cart.items.length}
           </Link>
 
-          <button className="btn post-btn">
+          <Link className="btn post-btn" to="/addPost">
             + Post Your Item
-          </button>
+          </Link>
         </div>
       </header>
     </>

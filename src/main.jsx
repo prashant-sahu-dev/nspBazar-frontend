@@ -17,6 +17,7 @@ import GroceryShops from "./routes/Grocery/GroceryShops.jsx";
 import ShopItems from "./routes/Grocery/ShopItems.jsx";
 import ShopOwnerLogin from "./routes/ShopOwners/Login/ShopOwnerLogin.jsx";
 import ShopDashboard from "./routes/ShopOwners/ShopDashBoard/ShopDashboard.jsx";
+import MyPosts from "./routes/MyPosts.jsx";
 import ShopProtectedRoute from "./components/ShopProtectedRoute.jsx";
 import { Toaster } from "sonner";
 
@@ -41,10 +42,14 @@ const router = createBrowserRouter([
       {
         path: "/addPost",
         element: (
-          <ProtectedRoute>
+            <ProtectedRoute>
             <AddPost />
-          </ProtectedRoute>
+            </ProtectedRoute>
         ),
+      },
+      {
+        path: "my-posts",
+        element: (<ProtectedRoute><MyPosts /></ProtectedRoute>)
       },
       {
         path: "/grocery",

@@ -80,9 +80,12 @@
   height: 28px;
   border: none;
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 22px;
   background: #f0f0f0;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .remove-btn {

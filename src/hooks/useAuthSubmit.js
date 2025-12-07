@@ -32,8 +32,8 @@ export const useAuthSubmit = (setLoading, setError, isLogin, nameRef, emailRef, 
     const formData = isLogin ? { email, password } : { name, email, password };
 
     const url = isLogin
-      ? `${import.meta.env.VITE_API_BASE_URL}/api/auth/login`
-      : `${import.meta.env.VITE_API_BASE_URL}/api/auth/signup`;
+      ? `${import.meta.env.VITE_API_BASE_URL}/auth/login`
+      : `${import.meta.env.VITE_API_BASE_URL}/auth/signup`;
 
     try {
       const res = await fetch(url, {
@@ -50,44 +50,20 @@ export const useAuthSubmit = (setLoading, setError, isLogin, nameRef, emailRef, 
         localStorage.setItem("userName", data.user.name);
         dispatch(isLoginActions.setLogin(true));
 
-        // Fetch wishlist
-        try {
-          const wishlistRes = await fetch(
-            `${import.meta.env.VITE_API_BASE_URL}/api/wishlist/${data.user.id}`
-          );
-          const wishlistData = await wishlistRes.json();
-          dispatch(wishlistActions.addInitialWishlist(wishlistData.wishlist));
-        } catch (error) {
-          console.error("Error fetching wishlist:", error);
-        }
 
         setLoading(false);
-        toast.success("Login/Signup Success ✅", {
-          position: "top-center",
-          autoClose: 4000,
-          theme: "dark",
-          transition: Bounce,
-        });
+        toast.success("Login/Signup Success ✅");
 
         navigate("/");
       } else {
         setLoading(false);
-        toast.error(data.message || "Something went wrong ❌", {
-          position: "top-center",
-          autoClose: 4000,
-          theme: "dark",
-          transition: Bounce,
-        });
+        toast.error(data.message || "Something went wrong ❌");
       }
     } catch (err) {
       setLoading(false);
-      toast.error(err.message || "Something went wrong ❌", {
-        position: "top-center",
-        autoClose: 4000,
-        theme: "dark",
-        transition: Bounce,
-      });
+      toast.error(err.message || "Something went wrong ❌");
     }
+    
   };
 
   return handleSubmit;

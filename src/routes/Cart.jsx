@@ -77,7 +77,7 @@ const Cart = () => {
           {/* Left Section - Items */}
           <div className="cart-left">
             {cart.items.map((item) => (
-              <div className="cart-item" key={item.id}>
+              <div className="cart-item" key={item._id}>
                 <img src={item.image} alt={item.name} />
 
                 <div className="cart-details">
@@ -132,7 +132,7 @@ const Cart = () => {
                     }
                   }}
                 >
-                  <PiTrashBold color="red" size={25} />
+                  <PiTrashBold color="red" size={22} />
                 </button>
               </div>
             ))}

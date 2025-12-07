@@ -18,7 +18,6 @@
 .shopItems-shopBanner {
   background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
   color: white;
-
   padding: 2rem;
   color: white;
   text-align: center;
@@ -113,4 +112,28 @@
     grid-template-columns: repeat(2, 1fr); /* 2 items side by side */
     gap: 12px;
   }
+
+  .shopItems-shopBanner {
+  padding: 1.7rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.shopItems-shopBanner h1 {
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.shopItems-shopBanner p {
+  font-size: 1rem;
+  opacity: 0.95;
+  font-family: 'Inter', sans-serif;
+}
+
+.shopItems-back-button {
+    margin-bottom: 0.3rem ;
+}
 }
